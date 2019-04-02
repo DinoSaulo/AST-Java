@@ -1,6 +1,6 @@
 package ast;
 
-public class MulExpr {
+public class MulExpr extends Expr {
 	Expr e1, e2;
 	public MulExpr(Expr e1, Expr e2) {
 		this.e1 = e1;
@@ -10,10 +10,12 @@ public class MulExpr {
 		return "( " + this.e1 + " + "  + this.e2 + " )";
 	}
 	
-	public int eval() {
-		return e1.eval() * e2.eval();
-	}
 	String posFixa() {
 		return "(" + e1.posFixa() + " " + e2.posFixa() + " * )";
+	}
+	
+	@Override
+	int accept(EvalVisitor v) {
+		return v.visit(this);
 	}
 }

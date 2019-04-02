@@ -14,4 +14,10 @@ public class NumExpr extends Expr {
 	String posFixa() {
 		return num+"";
 	}
+	
+	@Override
+	int accept(EvalVisitor v) {
+		return v.visit(this);
+	}
+	
 }

@@ -1,6 +1,6 @@
 package ast;
 
 public abstract class Expr {
-	abstract int eval();
 	abstract String posFixa();
+	abstract int accept(EvalVisitor e);
 }

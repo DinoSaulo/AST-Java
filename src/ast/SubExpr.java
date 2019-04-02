@@ -10,11 +10,12 @@ public class SubExpr extends Expr {
 		return "( " + this.e1 + " - "  + this.e2 + " )";
 	}
 	
-	public int eval() {
-		return e1.eval() - e2.eval();
-	}
-	
 	String posFixa() {
 		return "" + e1.posFixa() + e2.posFixa() + " - ";
+	}
+	
+	@Override
+	int accept(EvalVisitor v) {
+		return v.visit(this);
 	}
 }

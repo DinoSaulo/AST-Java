@@ -12,7 +12,10 @@ public class main {
 		NumExpr num2_2 = new NumExpr(2);
 		SumExpr sum2_2 = new SumExpr(num2_1, num2_2);
 		Expr ast = new SumExpr(sum79_8, sum2_2);
-		System.out.println(ast + " === " + ast.posFixa() + " === " + ast.eval());
+		
+		EvalVisitor ev = new EvalVisitor();
+		int resultado  = ev.visit(ast);
+		System.out.println(ast + " === " + ast.posFixa() + " === " + resultado  );
 		if (ast instanceof Expr) {
 			System.out.println("É uma Expr");
 		}
